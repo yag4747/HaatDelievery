@@ -20,12 +20,14 @@ import {TabBar} from './tabBar';
 import HomeContainer from '../container/HomeContainer';
 import {Provider, useDispatch, useSelector} from 'react-redux';
 import configureStore from '../redux/store/store';
-import { onGetMarketData } from '../redux/actions/AppActions';
+import { onGetLocationData, onGetMarketData } from '../redux/actions/AppActions';
 import MyOrderContainer from '../container/MyOrderContainer';
+
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 const store = configureStore();
+
 
 const options = type => ({
   headerShown: false,
@@ -37,7 +39,8 @@ function DashboardStackNavigator() {
 
   const dispatch = useDispatch()
   dispatch(onGetMarketData(null,null))
-
+  dispatch(onGetLocationData(null,null))
+  
   return (
     <Tab.Navigator
       tabBar={props => <TabBar {...props} />}

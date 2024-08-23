@@ -2,7 +2,7 @@
 import * as types from '../events/AppEvents';
 import {GET} from '../../apiHelper/ApiServices';
 // import { APP_LOADER } from "../events/GeneralEvents";
-import {MARKET_DATA} from '../../apiHelper/Api';
+import {GET_DRIVER_LOCATION, MARKET_DATA} from '../../apiHelper/Api';
 
 export const onGetMarketData = (authRequest, props) => {
   return async dispatch => {
@@ -32,6 +32,28 @@ export const onGetMarketData = (authRequest, props) => {
           dispatch({
             type: types.APP_SETTINGS,
             appSettings: response?.responseData?.appSettings,
+          });
+        }
+      },
+    );
+  };
+};
+
+
+
+export const onGetLocationData = (authRequest, props) => {
+  return async dispatch => {
+    // dispatch({ type: APP_LOADER, flag: true });
+    await GET(
+      GET_DRIVER_LOCATION,
+      props,
+      authRequest?.token,
+      dispatch,
+      function (response) {
+        if (response?.responseData) {
+          dispatch({
+            type: types.DRIVER_LOCATION,
+            driverLocations: response?.responseData,
           });
         }
       },

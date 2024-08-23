@@ -8,10 +8,16 @@ const initialState = {
   tags: null,
   mainPageBanners: null,
   appSettings: null,
+  driverLocations: null
 };
 
 export function appReducer(state = initialState, action) {
   switch (action.type) {
+    case types.DRIVER_LOCATION:
+      return {
+        ...state,
+        driverLocations: action.driverLocations,
+      };
     case types.GET_MAIN_PAGE_BANNER:
       return {
         ...state,

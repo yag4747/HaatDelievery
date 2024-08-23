@@ -16,8 +16,47 @@ import { colors } from "../../res/colors";
 import { Spacer } from "../../res/spacer";
 import FastImage from "react-native-fast-image";
 import { images } from "../../res/images";
+import { Client, Message } from 'react-native-paho-mqtt';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { useSelector } from "react-redux";
 
 export default OrderContainer = () => {
+  const appReducer = useSelector(state => state.appReducer);
+  useEffect(()=>{
+    const client = new Client({
+      uri: `wss://${appReducer?.driverLocations?.host}:${appReducer?.driverLocations?.port}/mqtt`, // WebSocket over SSL
+      clientId: appReducer?.driverLocations?.clientId,
+      storage: AsyncStorage,
+      username: appReducer?.driverLocations?.userName,
+      password: appReducer?.driverLocations?.password,
+    });
+    
+    client.on('connectionLost', (responseObject) => {
+      if (responseObject.errorCode !== 0) {
+        console.log('Connection lost:', responseObject.errorMessage);
+      }
+    });
+    
+    client.on('messageReceived', (message) => {
+      console.log('Received message:', message.payloadString);
+      // Assume the message contains latitude and longitude in JSON format
+      const { lat, lng } = JSON.parse(message.payloadString);
+      console.log(`Latitude: ${lat}, Longitude: ${lng}`);
+    });
+    
+    // Connect the client and subscribe to the topic
+    client
+      .connect()
+      .then(() => {
+        console.log('Connected to MQTT broker');
+        return client.subscribe(appReducer?.driverLocations?.topic, { qos: 0 });
+      })
+      .catch((error) => {
+        console.log('Connection failed:', error);
+      });
+
+  },[])
+
   return (
     <SafeAreaView className={"flex-1 bg-white"}>
       <View

@@ -14,7 +14,6 @@ import {
   Animated,
   SafeAreaView,
   ActivityIndicator,
-  ImageBackground,
 } from 'react-native';
 import {useSelector} from 'react-redux';
 import Carousel from 'react-native-snap-carousel';
@@ -40,7 +39,6 @@ export default HomeContainer = () => {
   const sliderRef = useRef(null);
 
   useEffect(() => {
-    console.log(appReducer?.appSettings?.imageServer)
     setImageServer(appReducer?.appSettings?.imageServer);
     const filteredData = appReducer?.categories.filter(
       item =>
@@ -79,11 +77,6 @@ export default HomeContainer = () => {
     setFilterHorizontalData(filteredHData);
 
   }, [appReducer]);
-
-  useEffect(()=>{
-    console.log("filteredHData")
-    console.log(filterHorizontalData)
-  },[filterHorizontalData])
 
   const renderImage = ({item, index}) => {
     return (

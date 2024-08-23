@@ -2149,10 +2149,20 @@
   "version" "1.1.2"
 
 "buffer@^5.5.0":
+  "integrity" "sha512-EHcyIPBQ4BSGlvjB16k5KgAJ27CIsHY/2JBmCRReo48y9rQ3MaUzWX3KVlBa4U7MyX02HdVj0K7C3WaB3ju7FQ=="
+  "resolved" "https://registry.npmjs.org/buffer/-/buffer-5.7.1.tgz"
   "version" "5.7.1"
   dependencies:
     "base64-js" "^1.3.1"
     "ieee754" "^1.1.13"
+
+"buffer@^6.0.3":
+  "integrity" "sha512-FTiCpNxtwiZZHEZbcbTIcZjERVICn9yq/pDFkTl95/AxzD1naBctN7YO68riM/gLSDY7sdrMby8hofADYuuqOA=="
+  "resolved" "https://registry.npmjs.org/buffer/-/buffer-6.0.3.tgz"
+  "version" "6.0.3"
+  dependencies:
+    "base64-js" "^1.3.1"
+    "ieee754" "^1.2.1"
 
 "bytes@3.0.0":
   "version" "3.0.0"
@@ -2890,6 +2900,11 @@
 "event-target-shim@^5.0.0", "event-target-shim@^5.0.1":
   "version" "5.0.1"
 
+"events@^1.1.1":
+  "integrity" "sha512-kEcvvCBByWXGnZy6JUlgAp2gBIUjfCAV6P6TgT1/aaQKcmuAEC4OZTV1I4EWQLz2gxZw76atuVyvHhTxvi0Flw=="
+  "resolved" "https://registry.npmjs.org/events/-/events-1.1.1.tgz"
+  "version" "1.1.1"
+
 "execa@^5.0.0", "execa@^5.1.1":
   "version" "5.1.1"
   dependencies:
@@ -3275,7 +3290,7 @@
   dependencies:
     "safer-buffer" ">= 2.1.2 < 3.0.0"
 
-"ieee754@^1.1.13":
+"ieee754@^1.1.13", "ieee754@^1.2.1":
   "version" "1.2.1"
 
 "ignore@^5.0.5", "ignore@^5.2.0", "ignore@^5.3.1":
@@ -4948,6 +4963,13 @@
   "integrity" "sha512-HOf0jzRnq2/aFUcdCJ9w9JGzN3gdEg0zFE4FyYlp4jtidqU03D5X7ZegGKfT1EWteR0gPBGp9ye5T5FvSWi9Yg=="
   "resolved" "https://registry.npmjs.org/react-native-iphone-x-helper/-/react-native-iphone-x-helper-1.3.1.tgz"
   "version" "1.3.1"
+
+"react-native-paho-mqtt@^0.1.1":
+  "integrity" "sha512-SbiAQA+BsfSoMkFZUUEdwmVpDeYMvP1CfGUBiBYWzqTsINWBjd9kPLGK+xJR7tUSBx7NcmYLliUWkqzwa9gZxw=="
+  "resolved" "https://registry.npmjs.org/react-native-paho-mqtt/-/react-native-paho-mqtt-0.1.1.tgz"
+  "version" "0.1.1"
+  dependencies:
+    "events" "^1.1.1"
 
 "react-native-responsive-screen@^1.4.2":
   "integrity" "sha512-BLYz0UUpeohrib7jbz6wDmtBD5OmiuMRko4IT8kIF63taXPod/c5iZgmWnr5qOnK8hMuKiGMvsM3sC+eHX/lEQ=="
