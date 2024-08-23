@@ -25,6 +25,7 @@ import {Spacer} from '../../res/spacer';
 import {colors} from '../../res/colors';
 import {Header} from '../../components/Header';
 import { fonts } from '../../res/fonts';
+import { images } from '../../res/images';
 
 export default HomeContainer = () => {
   const appReducer = useSelector(state => state.appReducer);
@@ -107,6 +108,8 @@ export default HomeContainer = () => {
       <View style={styles.imageContainer}>
         <FastImage
           source={{uri: imageServer + '/' + item?.images?.serverImage}}
+          fallback
+          defaultSource={images.business_ic}
           style={styles.image}
         />
       </View>
