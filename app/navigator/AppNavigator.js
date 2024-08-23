@@ -21,6 +21,7 @@ import HomeContainer from '../container/HomeContainer';
 import {Provider, useDispatch, useSelector} from 'react-redux';
 import configureStore from '../redux/store/store';
 import { onGetMarketData } from '../redux/actions/AppActions';
+import MyOrderContainer from '../container/MyOrderContainer';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -46,7 +47,7 @@ function DashboardStackNavigator() {
       <Tab.Screen name="Restaurants" component={HomeContainer} options={options} />
       <Tab.Screen name="Market" component={HomeContainer} options={options} />
       <Tab.Screen name="My Cart" component={HomeContainer} options={options} />
-      <Tab.Screen name="My Orders" component={HomeContainer} options={options} />
+      <Tab.Screen name="My Orders" component={MyOrderContainer} options={options} />
       <Tab.Screen name="Profile" component={HomeContainer} options={options} />
     </Tab.Navigator>
   );

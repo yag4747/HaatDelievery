@@ -10,4 +10,11 @@ export const images = {
     shop: require("../assets/images/shop.png"),
     shopping_bag: require("../assets/images/shopping_bag.png"),
     down_ic: require("../assets/images/down_ic.png"),
+    track_ic: require("../assets/images/track_ic.png"),
+
+    business_ic: require("../assets/images/business_ic.png"),
+    item_ic: require("../assets/images/item_ic.png"),
+    payment_ic:  require("../assets/images/payment_ic.png")
+
+
 }

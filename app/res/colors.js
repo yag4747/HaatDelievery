@@ -10,5 +10,7 @@ export const colors = {
     GRAY_SCALE_LIGHT: '#72708F',
     GRAY_SCALE_LIGHT_SUBTITLE: '#54536A',
     GREEN: '#17bd76',
-    LIGHT_GRAY: '#e7e7f2'
+    LIGHT_GRAY: '#e7e7f2',
+    TEXT_GRAY: '#9E9E9E',
+    NORMAL_GRAY: '#54536A'
 }
