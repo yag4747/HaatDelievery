@@ -22,6 +22,7 @@ import {Provider, useDispatch, useSelector} from 'react-redux';
 import configureStore from '../redux/store/store';
 import { onGetLocationData, onGetMarketData } from '../redux/actions/AppActions';
 import MyOrderContainer from '../container/MyOrderContainer';
+import TrackOrderContainer from '../container/TrackOrderContainer';
 
 
 const Stack = createNativeStackNavigator();
@@ -33,6 +34,15 @@ const options = type => ({
   headerShown: false,
   gestureEnabled: DEVICE_OS === 'android' ? false : true,
 });
+
+const OrderStackNavigator = () => {
+  return (
+      <Stack.Navigator initialRouteName={'MyOrderContainer'} >
+          <Stack.Screen name={'MyOrderContainer'} component={MyOrderContainer} options={options}></Stack.Screen>
+          <Stack.Screen name={'TrackOrder'} component={TrackOrderContainer} options={options}></Stack.Screen>
+      </Stack.Navigator>
+  )
+}
 
 function DashboardStackNavigator() {
   // const dashboardReducers = useSelector((state) => state.dashboardReducers);
@@ -50,7 +60,7 @@ function DashboardStackNavigator() {
       <Tab.Screen name="Restaurants" component={HomeContainer} options={options} />
       <Tab.Screen name="Market" component={HomeContainer} options={options} />
       <Tab.Screen name="My Cart" component={HomeContainer} options={options} />
-      <Tab.Screen name="My Orders" component={MyOrderContainer} options={options} />
+      <Tab.Screen name="My Orders" component={OrderStackNavigator} options={options} />
       <Tab.Screen name="Profile" component={HomeContainer} options={options} />
     </Tab.Navigator>
   );

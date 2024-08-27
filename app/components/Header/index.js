@@ -77,7 +77,8 @@ export const style = StyleSheet.create({
     shadowOpacity: 5,
     shadowRadius: 2,
     borderBottomWidth:wp(0.2),
-    borderColor: colors.LIGHT_GRAY
+    borderColor: colors.LIGHT_GRAY,
+    paddingTop :wp(2)
   },
   wrapperContainer: {
     flexDirection: 'row',
